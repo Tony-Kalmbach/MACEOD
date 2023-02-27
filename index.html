@@ -1,0 +1,98 @@
+<!--
+Author: Tony Kalmbach
+Email: trkalmbach@gmail.com
+
+Co-Author: Conrad Selig
+Email: Conrad@ConradSelig.dev
+
+Description:
+	HTML file acting as UI for totaling calculator program for end-of-day tasks
+	
+Changes:
+	Date		Detail
+	2022-01-17	Initial write.
+	2022-03-30	Added debit
+	2023-02-26  Added grand total
+--->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>End of day totals</title>
+	<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="main.js"></script>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div class="main">
+	<h1>End of Day Totals Calculator</h1>
+	<hr/>
+	<div class="form">
+	<img src="images/mulnix-logo.png" class="logo"/>
+	<form onsubmit="return false;" name="input_form">
+		<table>
+			<tr>
+				<th><label for="Vi">Visa: </label></th>
+				<td><input type="number" step="0.01" name="Vi" id="Vi" /></th>
+				<td><img src="images/Visa.png" /></td>
+			</tr>
+			
+			<tr>
+				<th><label for="Mc">Mastercard: </label>
+				<td><input type="number" step="0.01" name="Mc" id="Mc" /></th>
+				<td><img src="images/Mastercard.png" /></td>
+			</tr>
+			
+			<tr>
+				<th><label for="Di">Discover: </label>
+				<td><input type="number" step="0.01" name="Di" id="Di" /></th>
+				<td><img src="images/Discover.png" /></td>
+			</tr>
+			
+			<tr>
+				<th><label for="Ae">American Express: </label>
+				<td><input type="number" step="0.01" name="Ae" id="Ae" /></th>
+				<td><img src="images/AE.png" /></td>
+			</tr>
+
+			<tr>
+				<th><label for="Db">Debit: </label>
+				<td><input type="number" step="0.01" name="Db" id="Db" /></th>
+				<td><img src="images/Debit.png" /></td>
+			</tr>
+			
+			<tr>
+				<th></th>
+				<th class="cent sub"><input type="submit" value="Submit" onclick="main();"/></th>
+			</tr>
+		</table>
+	</form>
+	</div>
+	<hr/>
+	<fieldset>
+		<legend><img src="images/Visa.png" /> Visa total:</legend>
+		<span>$</span><span style="margin-left: 5px" id="Vi_">0</span>
+	</fieldset>
+	<fieldset>
+		<legend><td><img src="images/Mastercard.png" /></td> MasterCard total:</legend>
+		<span>$</span><span style="margin-left: 5px" id="Mc_">0</span>
+	</fieldset>
+	<fieldset>
+		<legend><img src="images/Discover.png" /> Discover total:</legend>
+		<span>$</span><span style="margin-left: 5px" id="Di_">0</span>
+	</fieldset>
+	<fieldset>
+		<legend><img src="images/AE.png" /> American Express total:</legend>
+		<span>$</span><span style="margin-left: 5px" id="Ae_">0</span>
+	</fieldset>
+	<fieldset>
+		<legend><img src="images/Debit.png" /> Debit total:</legend>
+		<span>$</span><span style="margin-left: 5px" id="Db_">0</span>
+	</fieldset>
+	<fieldset>
+		<legend><img src="images/GT.png" /> Grand total:</legend>
+		<span>$</span><span style="margin-left: 5px" id="Gt_">0</span>
+	</fieldset>
+	</div>
+</body>
+</html>
