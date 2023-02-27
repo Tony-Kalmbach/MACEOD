@@ -115,6 +115,42 @@ function main() {
 	db_element.innerHTML = Math.round(db_total * 100) / 100;
 	gt_element.innerHTML = Math.round(gt_total * 100) / 100;
 	
+	// add the values to the history
+	add_history("vi_select", vi_form);	
+	add_history("mc_select", mc_form);	
+	add_history("di_select", di_form);	
+	add_history("ae_select", ae_form);	
+	add_history("db_select", db_form);	
+	
 	// empty the form fields
 	document.input_form.reset();
+}
+
+/*
+	select_id: str -> ID of a select element on the page
+	form_element: obj -> full object of a number form element
+*/
+function add_history(select_id, form_element) {
+	
+	// don't add a value if nothing was entered!
+	if (parseFloat(form_element.value) == 0) {
+		return;
+	}
+	
+	// grab our select element, and make a new option for it
+	var el_select = document.getElementById(select_id);
+	var hist_opt = document.createElement('option');
+	
+	// style our option element
+	hist_opt.disabled = true;
+	if (parseFloat(form_element.value) >= 0) {
+		hist_opt.innerHTML = '+ $' + form_element.value;
+		hist_opt.classList.add("history-positive");
+	} else {
+		hist_opt.innerHTML = '- $' + form_element.value.substring(1);
+		hist_opt.classList.add("history-negative");
+	}
+	
+	// link the new option to the select element
+	el_select.appendChild(hist_opt);
 }
