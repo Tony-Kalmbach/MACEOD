@@ -2,6 +2,9 @@
 Author: Tony Kalmbach
 Email: trkalmbach@gmail.com
 
+Co-Author: Conrad Selig
+Email: Conrad@ConradSelig.dev
+
 Description:
 	Stylesheet for totals calculator program
 	
@@ -58,6 +61,16 @@ legend {
 	background-color: white;
 	border-radius: 5px;
 	padding: 5px;
+}
+.history {
+	float: right; 
+	margin-top: -1px;
+}
+.history-positive {
+	color: green;
+}
+.history-negative {
+	color: red;
 }
 .high {
 	border: 1px solid red;
